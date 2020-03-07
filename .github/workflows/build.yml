@@ -12,11 +12,15 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
     runs-on: macOS-latest
     
     steps:
     - uses: actions/checkout@master
-    - name: Start xcodebuild test
-      run: xcodebuild clean build -project Pecunia.xcodeproj -scheme Pecunia # -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+    - name: Start xcodebuild build
+      run: xcodebuild clean build -workspace Pecunia.xcworkspace -scheme Pecunia # -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+    - name: Github Release
+      uses: elgohr/Github-Release-Action@v3.1
+      with:
+        # The name of the release to publish
+        release: Pecunia
