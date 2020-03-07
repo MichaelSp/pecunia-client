@@ -19,4 +19,4 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Start xcodebuild test
-      run: xcodebuild clean test -project Pecunia.xcodeproj -scheme Pecunia # -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+      run: xcodebuild clean build -project Pecunia.xcodeproj -scheme Pecunia # -destination "platform=iOS Simulator,name=iPhone 11 Pro"
