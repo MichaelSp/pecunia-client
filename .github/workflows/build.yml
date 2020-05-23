@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the action will run. Triggers the workflow on push or pull request 
+# Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
@@ -14,14 +14,14 @@ on:
 jobs:
   build:
     runs-on: macOS-latest
-    
+
     steps:
-    - uses: Mushus/checkout-submodule@v1.0.1
     - uses: actions/checkout@master
+      with:
+        submodules: true
     - name: Start xcodebuild build
       run: xcodebuild clean build -workspace Pecunia.xcworkspace -scheme Pecunia # -destination "platform=iOS Simulator,name=iPhone 11 Pro"
     - name: Github Release
       uses: elgohr/Github-Release-Action@v3.1
       with:
-        # The name of the release to publish
         release: Pecunia
