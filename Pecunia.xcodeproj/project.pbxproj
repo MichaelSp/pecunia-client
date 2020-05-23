@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -2503,13 +2503,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 1110;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Frank Emminghaus";
 				TargetAttributes = {
 					8D1107260486CEB800E47090 = {
-						DevelopmentTeam = JY3Q678PYA;
 						LastSwiftMigration = 1110;
-						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
 								enabled = 1;
@@ -2525,7 +2523,7 @@
 				};
 			};
 			buildConfigurationList = B14C0A8B0AAF71DB00CC41C4 /* Build configuration list for PBXProject "Pecunia" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -3119,15 +3117,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		B14C0A880AAF71DB00CC41C4 /* Development */ = {
+		B14C0A880AAF71DB00CC41C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Pecunia.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 30.5;
@@ -3163,7 +3161,10 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Resources";
 				MARKETING_VERSION = 2.1.0;
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
@@ -3174,7 +3175,7 @@
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "-lz";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = de.pecuniabanking.pecunia;
+				PRODUCT_BUNDLE_IDENTIFIER = de.pecuniabanking.pecunia1;
 				PRODUCT_NAME = Pecunia;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
@@ -3188,21 +3189,21 @@
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
-			name = Development;
+			name = Debug;
 		};
-		B14C0A890AAF71DB00CC41C4 /* Deployment */ = {
+		B14C0A890AAF71DB00CC41C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Pecunia.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 30.5;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MTHZLUQ42U;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/Build/Products/Debug",
@@ -3225,7 +3226,10 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Resources";
 				MARKETING_VERSION = 2.1.0;
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
@@ -3233,7 +3237,7 @@
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "-lz";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = de.pecuniabanking.pecunia;
+				PRODUCT_BUNDLE_IDENTIFIER = de.pecuniabanking.pecunia1;
 				PRODUCT_NAME = Pecunia;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
@@ -3246,7 +3250,7 @@
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = NO;
 			};
-			name = Deployment;
+			name = Release;
 		};
 		B14C0A8A0AAF71DB00CC41C4 /* Default */ = {
 			isa = XCBuildConfiguration;
@@ -3255,7 +3259,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Pecunia.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -3283,7 +3287,10 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Resources";
 				MARKETING_VERSION = 2.1.0;
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
@@ -3305,7 +3312,7 @@
 			};
 			name = Default;
 		};
-		B14C0A8C0AAF71DB00CC41C4 /* Development */ = {
+		B14C0A8C0AAF71DB00CC41C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -3351,9 +3358,9 @@
 				SDKROOT = macosx;
 				VALID_ARCHS = "i386 x86_64";
 			};
-			name = Development;
+			name = Debug;
 		};
-		B14C0A8D0AAF71DB00CC41C4 /* Deployment */ = {
+		B14C0A8D0AAF71DB00CC41C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -3394,10 +3401,11 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALID_ARCHS = "i386 x86_64";
 			};
-			name = Deployment;
+			name = Release;
 		};
 		B14C0A8E0AAF71DB00CC41C4 /* Default */ = {
 			isa = XCBuildConfiguration;
@@ -3449,8 +3457,8 @@
 		B14C0A870AAF71DB00CC41C4 /* Build configuration list for PBXNativeTarget "Pecunia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B14C0A880AAF71DB00CC41C4 /* Development */,
-				B14C0A890AAF71DB00CC41C4 /* Deployment */,
+				B14C0A880AAF71DB00CC41C4 /* Debug */,
+				B14C0A890AAF71DB00CC41C4 /* Release */,
 				B14C0A8A0AAF71DB00CC41C4 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -3459,8 +3467,8 @@
 		B14C0A8B0AAF71DB00CC41C4 /* Build configuration list for PBXProject "Pecunia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B14C0A8C0AAF71DB00CC41C4 /* Development */,
-				B14C0A8D0AAF71DB00CC41C4 /* Deployment */,
+				B14C0A8C0AAF71DB00CC41C4 /* Debug */,
+				B14C0A8D0AAF71DB00CC41C4 /* Release */,
 				B14C0A8E0AAF71DB00CC41C4 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
