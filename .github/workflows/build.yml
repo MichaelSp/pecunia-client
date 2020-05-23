@@ -14,14 +14,30 @@ on:
 jobs:
   build:
     runs-on: macOS-latest
-
     steps:
     - uses: actions/checkout@master
       with:
         submodules: true
     - name: Start xcodebuild build
-      run: xcodebuild clean build -workspace Pecunia.xcworkspace -scheme Pecunia # -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+      run: xcodebuild archive -workspace Pecunia.xcworkspace -scheme "Pecunia AppStore"
+  release:
+    runs-on: ubuntu-latest
+    steps:
     - name: Github Release
-      uses: elgohr/Github-Release-Action@v3.1
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        release: Pecunia
+        tag_name: ${{ github.ref }}
+        release_name: Pecunia ${{ github.ref }}
+    - name: Upload Release Asset
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./Pecunia.dmg
+        asset_name: Pecunia.dmg
+        asset_content_type: application/octet-stream
