@@ -20,7 +20,14 @@ jobs:
         submodules: true
     - name: Start xcodebuild build
       run: xcodebuild archive -workspace Pecunia.xcworkspace -scheme "Pecunia AppStore"
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: dmg
+        path: Pecunia.dmg
+
   release:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Github Release
@@ -31,6 +38,10 @@ jobs:
       with:
         tag_name: ${{ github.ref }}
         release_name: Pecunia ${{ github.ref }}
+    - name: Download artifact form build
+      uses: actions/download-artifact@v1
+      with:
+        name: dmg
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1
