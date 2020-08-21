@@ -230,11 +230,23 @@
         NSEntityDescription *entity = [stat entity];
         NSArray             *attributeKeys = [[entity attributesByName] allKeys];
         NSDictionary        *attributeValues = [stat dictionaryWithValuesForKeys: attributeKeys];
-
-        BankStatement *bankStatement = [NSEntityDescription insertNewObjectForEntityForName: @"BankStatement"
-                                                            inManagedObjectContext: context];
+        
+        BankStatement       *bankStatement = [NSEntityDescription insertNewObjectForEntityForName: @"BankStatement"
+                                                                           inManagedObjectContext: context];
 
         [bankStatement setValuesForKeysWithDictionary: attributeValues];
+
+        if (stat.sepa != nil) {
+            NSEntityDescription *sepaEntity = [stat.sepa entity];
+            NSArray             *sepaAttributeKeys = [[sepaEntity attributesByName] allKeys];
+            NSDictionary        *sepaValues = [stat.sepa dictionaryWithValuesForKeys:sepaAttributeKeys];
+            
+            SepaData *sepa = [NSEntityDescription insertNewObjectForEntityForName: @"SepaData"
+                                                           inManagedObjectContext: context];
+            [sepa setValuesForKeysWithDictionary:sepaValues];
+            bankStatement.sepa = sepa;
+        }
+
         if (!bankStatement.isPreliminary.boolValue) {
             bankStatement.isNew = @YES;
         }
@@ -783,5 +795,29 @@
     [s appendFormat: @"%@}", indent];
     return s;
 }
+
+- (NSString *)localAccountName {
+    return [NSString stringWithFormat:@"%@ (%@/%@)", self.localName, self.accountNumber, self.bankCode];
+}
+
+- (void)moveStatementsFromAccount: (BankAccount *)sourceAccount {
+
+    NSArray *statements = [[sourceAccount mutableSetValueForKey:@"statements"] allObjects];
+    NSArray *assignments = [[sourceAccount mutableSetValueForKey:@"assignments"] allObjects];
+    
+    for(BankStatement *statement in statements) {
+        statement.account = self;
+        statement.localAccount = self.accountNumber;
+        statement.localSuffix = self.accountSuffix;
+        statement.localBankCode = self.bankCode;
+    }
+    
+    for(StatCatAssignment *assignment in assignments) {
+        assignment.category = self;
+    }
+    
+    
+}
+
 
 @end
